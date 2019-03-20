@@ -1,0 +1,80 @@
+#login-form {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border: 1.5px solid $secondary-colour;
+    background-color: $primary-colour--dark;
+    
+    %field {
+        color: $primary-colour--text;
+    }
+    %field label {
+        color: $primary-colour--text;
+    }
+    %field input[type=text] {
+        border-bottom: 1px solid $primary-colour--text;
+    }
+    %field input[type=text]:disabled {
+        color: $primary-colour--light;
+    }
+    %field input[type=text]::placeholder {
+        color: $primary-colour--light;
+    }
+    %field input[type=text]:focus {
+        color: $primary-colour--text;
+        border-bottom: 1px solid $secondary-colour;
+        box-shadow: 0 1px 0 0 $secondary-colour;
+    }
+    %field input[type=text].valid {  
+        border-bottom: 1px solid $good-colour;
+        box-shadow: 0 1px 0 0 $good-colour;
+    }
+    %field input[type=text].invalid {
+        border-bottom: 1px solid $bad-colour;
+        box-shadow: 0 1px 0 0 $bad-colour;
+    }
+    
+    %button {
+        width: 150px;
+        margin: 5px;
+        border-radius: 500px;
+        color: $text-colour;
+        background-color: $secondary-colour;
+    }
+
+    #username-field {
+        @extend %field;
+    }
+
+    #address-field {
+        @extend %field;
+        margin-bottom: 0px;
+    }
+
+    #loading-circle {
+        position: fixed;
+        top: 50%;
+        margin: 0px;
+        margin-top: 5px;
+
+        .spinner-layer {
+            border-color: $secondary-colour;
+        }
+    }
+
+    #host-button {
+        @extend %button;
+        margin-top: 10px;
+    }
+    
+    #connect-button {
+        @extend %button;
+    }
+}

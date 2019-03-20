@@ -1,0 +1,30 @@
+{
+  "name": "whisper",
+  "version": "0.1.0",
+  "description": "A simple chat program",
+  "main": "main.js",
+  "author": "Nick Letchford",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build-linux-x64": "npx electron-packager . Whisper --platform=linux --arch=x64",
+    "build-windows-x64": "npx electron-packager . Whisper --platform=win32 --arch=x64",
+    "build-darwin-x64": "npx electron-packager . Whisper --platform=darwin --arch=x64",
+    "build-linux-x86": "npx electron-packager . Whisper --platform=linux --arch=ia32",
+    "build-windows-x86": "npx electron-packager . Whisper --platform=win32 --arch=ia32"
+  },
+  "dependencies": {
+    "hashids": "^1.2.2",
+    "highlight.js": "^9.13.1",
+    "markdown-styles": "^3.1.10",
+    "material-components-web": "^0.42.1",
+    "showdown": "^1.9.0"
+  },
+  "devDependencies": {
+    "electron": "^4.0.0",
+    "electron-packager": "^13.0.1",
+    "electron-reload": "^1.4.0",
+    "sass": "^1.15.2"
+  }
+}

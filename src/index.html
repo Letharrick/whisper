@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Whisper</title>
+
+        <!---------------- CSS ---------------->
+        <!-- Normalize -->
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
+        <!-- Materialize -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <!-- Hightlight -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/dracula.min.css">
+
+        <!-- Local -->
+        <link rel="stylesheet" href="./index.css">
+        <!---------------- CSS ---------------->
+
+        <!---------------- JavaScript ---------------->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Materialize -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <!-- Anime -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+
+        <!-- Hightlight -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+        <!-- Local -->
+        <script src="./index.js"></script>
+
+        <script>if (window.module) module = window.module;</script>
+        <!---------------- JavaScript ---------------->
+    </head>
+
+    <body>
+        <div id="frame">
+            <p id="title">Whisper</p>
+            <div id="frame-buttons">
+                <div id="minimize-button"></div>
+                <div id="close-button"></div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="login-form" style="opacity: 0;">
+                <div id="username-field" class="input-field">
+                    <input id="username-input" placeholder="John Doe" class="login-input validate" type="text" minlength="1" data-length="15" data-tip="abc">
+                    <label for="username-input">Username</label>
+                </div>
+
+                <div id="address-field" class="input-field">
+                    <input id="address-input" placeholder="127.0.0.1:5000" class="login-input validate" type="text" pattern="^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}$">
+                    <label for="address-input">Address</label>
+                </div>
+
+
+                <div id="loading-circle" class="preloader-wrapper small active">
+                    <div class="spinner-layer">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="host-button" class="login-button btn waves-effect waves-light">
+                    <i class="material-icons left">add_circle_outline</i>
+                    Host
+                </button>
+
+                <button id="connect-button" class="login-button btn waves-effect waves-light">
+                    <i class="material-icons left">chevron_right</i>
+                    Connect
+                </button>
+            </div>
+
+            <div id="chatroom" style="opacity: 0; display: none;">
+                <div id="messaging">
+                    <div id="messages"></div>
+                    <div id="message-box-area">
+                        <textarea id="message-box" placeholder="Write a message..."></textarea>
+                    </div>
+                </div>
+                
+                <div id="users"></div>
+            </div>
+        </div>
+    </body>
+</html>

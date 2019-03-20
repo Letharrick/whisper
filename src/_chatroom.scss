@@ -1,0 +1,149 @@
+%item {
+    height: fit-content;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border-top: 1px solid $primary-colour--light;
+    border-bottom: 1px solid $primary-colour--light;
+    background-color: $primary-colour--dark;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+%toast {
+    border: 1px solid $secondary-colour;
+    color: $secondary-colour;
+    background-color: $primary-colour--dark;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.error-toast {
+    @extend %toast;
+}
+
+#chatroom {
+    z-index: 50;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 96%;
+
+    #messaging {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        ::-webkit-scrollbar { 
+            display: none; 
+        }
+
+        #messages {
+            display: inline-block;
+            padding: 7px;
+            padding-left: 15px;
+            padding-right: 15px;
+            overflow-y: scroll;
+            background-color: $primary-colour;
+
+            .message {
+                @extend %item;
+                display: flex;
+                padding: 3px;
+                padding-left: 15px;
+                padding-right: 15px;
+                flex-direction: column;
+                text-align: left;
+
+                #message-metadata {
+                    display: flex;
+                    padding: 2px;
+                    margin: 0px;
+                    border-bottom: 0.5px solid $primary-colour;
+
+                    #message-author {
+                        justify-self: flex-start;
+                    }
+                    #message-time {
+                        width: fit-content;
+                        justify-self: flex-end;
+                    }
+                }
+
+                #message-metadata * {
+                    font-size: $font-size + 3;
+                    color: $primary-colour--light;
+                }
+                
+                #message-content {
+                    width: 100%;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    user-select: text;
+                    white-space: pre-line;
+                    overflow-wrap: break-word;
+                }
+            }
+        }
+
+        #message-box-area {
+            height: fit-content;
+            padding: 25px;
+            border-top: 1.5px solid $primary-colour--light;
+            box-shadow: 0 -10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            background-color: $primary-colour--dark;
+
+            #message-box {
+                height: 48px;
+                max-height: 140px;
+                min-height: 48px;
+                line-height: 14px;
+                padding: 15px;
+                transition: border 0.5s ease;
+                outline: none;
+                border-radius: 25px;
+                border: 1px solid $primary-colour--light;
+                resize: none;
+                color: $primary-colour--text;
+                background-color: $primary-colour;
+            }
+
+            #message-box::placeholder {
+                color: $primary-colour--light;
+            }
+
+            #message-box:focus {
+                transition: border 0.5s ease;
+                border: 2px solid $secondary-colour;
+                box-shadow: none;
+            }
+        }
+    }
+
+    #users {
+        resize: vertical;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        width: fit-content;
+        padding: 10px;
+        box-shadow: -10px -10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        border-left: 1.5px solid $primary-colour--light;
+        background-color: $primary-colour--dark;
+    }
+
+    .user {
+        @extend %item;
+        width: 125px;
+        border: 1px solid $primary-colour--light;
+        color: $primary-colour--light;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+#chatroom * {
+    width: 100%;
+    height: 100%;
+}

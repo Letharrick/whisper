@@ -1,0 +1,10 @@
+#content {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $primary-colour--dark;
+    background: linear-gradient(45deg, $primary-colour--dark 10%, $primary-colour 100%);
+}

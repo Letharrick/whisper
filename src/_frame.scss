@@ -1,0 +1,54 @@
+@import 'variables';
+
+%frame-button {
+    -webkit-app-region: no-drag;
+    width: 13px;
+    height: 13px;
+    margin: 5px;
+    border-radius: 50%;
+    transition: box-shadow 0.10s;
+}
+
+#frame {
+    z-index: 999;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-items: center;
+    -webkit-app-region: drag;
+    width: 100%;
+    height: 25px;
+    background-color: $primary-colour--dark;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    #title {
+        position: fixed;
+        text-align: center;
+    }
+
+    #frame-buttons {
+        z-index: 1000;
+        display: flex;
+        width: fit-content;
+
+        #minimize-button {
+            @extend %frame-button;
+            background-color: #ffbe69;
+        }
+        #minimize-button:hover {
+            box-shadow: 0 0 10px #ffbe69;
+        }
+        
+        #close-button {
+            @extend %frame-button;
+            background-color: #b91d51;
+        }
+        #close-button:hover {
+            box-shadow: 0 0 10px #b91d51;
+        }
+    }
+}
+
+#frame * {
+    width: 100%;
+}
